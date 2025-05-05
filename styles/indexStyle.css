@@ -13,25 +13,37 @@ body
 
 #card-section
 {
-    width: 300px;
-    margin: 0 auto;
+    width: 650px;
+    height: 850px;
+    margin: auto auto;
     background-color: var(--secondary-color);
     justify-items: center;
     box-shadow: 10px 10px var(--accent-2);
     border-radius: 10px;
+    padding-top: 50px;
 }
 
 #card
 {
-    height: 200px;
-    width: 100px;
     background-color: var(--accent-2);
     display: none;
+    border-radius: 10px;
 }
 
 #pack
 {
-    height: 200px;
-    width: 100px;
+    height: 808px;
+    width: 553px;
     background-color: var(--primary-color);
+}
+
+#card-image
+{
+    height: 138.8;
+    width: 202.6;
+}
+
+#buttons
+{
+    margin-top: 50px;
 }

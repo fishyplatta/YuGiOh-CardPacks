@@ -1,9 +1,16 @@
 var count = 0;
+const available_cards = ["gtlw.jpg", "mimikyuchris.jpg", "russian-snow.jpg", "sloth.jpg"]
+
+function GetRandomElement() 
+{
+    return available_cards[Math.floor(Math.random() * available_cards.length)];
+}
 
 function Open()
 {
     document.getElementById("card").style.display = "block"
-    document.getElementById("pack").style.display = "none"
+    document.getElementById("pack").style.display = "none" 
+    document.getElementById("card").src = "cards/" + GetRandomElement();
     count = 15;
 }
 
@@ -19,7 +26,7 @@ function NextCard()
         }
         else
         {
-            document.getElementById("card").innerHTML = "For card: " + count;
+            document.getElementById("card").src = "cards/" + GetRandomElement();
         }
     }
 }
