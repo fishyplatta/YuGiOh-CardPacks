@@ -1,5 +1,5 @@
 var count = 0;
-const available_cards = ["gtlw.jpg", "mimikyuchris.jpg", "russian-snow.jpg", "sloth.jpg"]
+const available_cards = ["gtlw.jpg", "mimikyuchris.jpg", "russian-snow.jpg", "sloth.jpg", "channel-deletion.jpg", "shhark.jpg", "yy-of-the-undercity.jpg", "yy-the-wildfyre.jpg", "chadius.jpg"]
 
 function GetRandomElement() 
 {
