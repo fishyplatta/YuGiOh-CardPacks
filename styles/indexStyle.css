@@ -1,3 +1,10 @@
+@keyframes wiggle
+{
+    25% {transform: rotate(5deg);}
+    50% {transform: rotate(-5deg);}
+    75% {transform: rotate(5deg);}
+}
+
 :root
 {
     --primary-color: #a94c3a;
@@ -11,39 +18,68 @@ body
     background-color: var(--accent-1);
 }
 
+section
+{
+    transition: all 2s;
+}
+
 #card-section
 {
     width: 650px;
-    height: 850px;
+    height: 830px;
     margin: auto auto;
     background-color: var(--secondary-color);
     justify-items: center;
     box-shadow: 10px 10px var(--accent-2);
     border-radius: 10px;
-    padding-top: 50px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: row;
 }
 
-#card
+button
 {
-    background-color: var(--accent-2);
-    display: none;
-    border-radius: 10px;
+    background: none;
+    border-color: transparent;
 }
 
 #pack
 {
+    color: transparent;
+    height: 808px;
+    width: 553;
+    margin: 0 auto;
+    background-image: url("media/card-back.jpg");
+}
+
+#pack button img
+{
+    animation-name: wiggle;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+    animation-iteration-count: 1;
+}
+
+#pack button img:hover
+{
+    animation-play-state: running;
+}
+
+#card
+{
+    display: none;
+}
+
+#moveable
+{
+    display: none;
+}
+
+#pile
+{
+    background-color: #474749;
     height: 808px;
     width: 553px;
-    background-color: var(--primary-color);
-}
-
-#card-image
-{
-    height: 138.8;
-    width: 202.6;
-}
-
-#buttons
-{
-    margin-top: 50px;
+    display: none;
 }

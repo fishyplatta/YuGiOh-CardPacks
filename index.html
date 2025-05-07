@@ -9,17 +9,18 @@
 <body>
     <section id="card-section">
         <div id="pack">
-            For the pack
+            <button>
+                <img src="media/card-pack.jpg" alt="" id="pack-img" onclick="OpenPack()">
+            </button>
         </div>
-        <img src="" alt="" id="card">
-        <section class="buttons">
-            <button onclick="Open()">
-                Open Pack
+        <div id="card">
+            <button id="card-button" onclick="NextCard()">
+                <img src="" alt="" id="card-img">
             </button>
-            <button onclick="NextCard()">
-                Next Card
-            </button>
-        </section>
+        </div>
+        <div id="pile">
+            <img src="" alt="" id="pile-img">
+        </div>
     </section>
 </body>
 <script src="scripts/pack-opening.js"></script>
