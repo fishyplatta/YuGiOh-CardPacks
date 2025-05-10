@@ -26,7 +26,7 @@ var files =
   "shhark.jpg", 
   "skelly-pup.jpg",
   "sloth.jpg",
-  "teal-magician", 
+  "teal-magician.jpg", 
   "yenfestation.jpg",
   "yy-of-the-undercity.jpg",
   "yy-the-wildfyre.jpg"
