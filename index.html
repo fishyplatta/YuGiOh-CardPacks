@@ -9,9 +9,24 @@
 <body>
     <section id="card-section">
         <div id="pack">
-            <button>
+            <button onclick="OpenPack()">
                 <img src="media/card-pack.jpg" alt="" id="pack-img" onclick="OpenPack()">
             </button>
+        </div>
+        <div id="card-container" >
+            <div class="card-side" id="card-front">
+                <button onclick="FlipCard()">
+                    <img src="media/card-back.jpg" alt="" class="card-img">
+                </button>
+            </div>
+            <div class="card-side" id="card-back">
+                <button>
+                    <img src="media/cards/yy-the-wildfyre.jpg" alt="" class="card-img">
+                </button>
+            </div>
+        </div>
+        <div id="pile">
+            <img src="" alt="" id="pile-img">
         </div>
     </section>
 </body>

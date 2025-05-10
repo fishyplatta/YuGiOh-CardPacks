@@ -1,10 +1,7 @@
 const plate = document.getElementById("card-section");
 const pack = document.getElementById("pack");
-const card = document.getElementById("card");
-const card_btn = document.getElementById("card-btn")
-const pile = document.getElementById("pile");
-const card_img = document.getElementById("card-img");
-const pile_img = document.getElementById("pile-img");
+const container = document.getElementById("card-container")
+const pile = document.getElementById("pile-img")
 
 var files = 
 [
@@ -22,8 +19,34 @@ var files =
 var remaining_cards = 0;
 var selected_card;
 
+var firstClick = true;
+var id = null;
+
 function RandCard()
 {
     const random = Math.floor(Math.random() * files.length)
     selected_card = "media/cards/" + files[random];
+}
+
+function OpenPack()
+{
+    var width = 650;
+    clearInterval(id);
+    id = setInterval(frame, 1);
+    function frame() {
+      if (width == 1400) {
+        clearInterval(id);
+        pack.style.display = "none";
+        container.style.display = "block"
+      } else {
+        width+=5;
+        plate.style.width = width + "px";
+        pack.style.marginLeft = "40.5px";
+      }
+    }
+}
+
+function FlipCard()
+{
+  container.classList.toggle("is-flipped")
 }

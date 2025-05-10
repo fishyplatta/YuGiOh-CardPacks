@@ -47,7 +47,7 @@ button
     background-image: url("media/card-back.jpg");
 }
 
-#card-image
+#pack-img
 {
     animation-name: wiggle;
     animation-duration: 1s;
@@ -56,7 +56,46 @@ button
     animation-iteration-count: 1;
 }
 
-#card-img:hover
+#pack-img:hover
 {
     animation-play-state: running;
+}
+
+#card-container
+{
+    margin-left: 40.5px; 
+    position: relative;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: all 0.5s;
+    display: none;
+    width: 553px;
+    height: 808px;  
+}
+
+.card-side
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+#card-back
+{
+    transform: rotateY(180deg); 
+}
+
+#card-container.is-flipped 
+{
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card-img
+{
+    border-radius: 8px;
 }
