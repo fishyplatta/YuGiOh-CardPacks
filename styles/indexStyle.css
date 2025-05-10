@@ -18,11 +18,6 @@ body
     background-color: var(--accent-1);
 }
 
-section
-{
-    transition: all 2s;
-}
-
 #card-section
 {
     width: 650px;
@@ -52,7 +47,7 @@ button
     background-image: url("media/card-back.jpg");
 }
 
-#pack button img
+#card-image
 {
     animation-name: wiggle;
     animation-duration: 1s;
@@ -61,25 +56,7 @@ button
     animation-iteration-count: 1;
 }
 
-#pack button img:hover
+#card-img:hover
 {
     animation-play-state: running;
-}
-
-#card
-{
-    display: none;
-}
-
-#moveable
-{
-    display: none;
-}
-
-#pile
-{
-    background-color: #474749;
-    height: 808px;
-    width: 553px;
-    display: none;
 }

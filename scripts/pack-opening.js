@@ -27,32 +27,3 @@ function RandCard()
     const random = Math.floor(Math.random() * files.length)
     selected_card = "media/cards/" + files[random];
 }
-
-function OpenPack()
-{
-    plate.style.width = "1400px";
-    pack.style.display = "none";
-    card.style.display = "block";
-    card.style.margin = "0 40px";
-    remaining_cards = 9;
-    RandCard();
-    card_img.src = selected_card;
-    pile.style.display = "block";
-}
-
-function NextCard()
-{
-    if(remaining_cards != 0)
-    {
-        remaining_cards--;
-        pile_img.src = selected_card;
-        RandCard();
-        card_img.src = selected_card;
-    }
-    else
-    {
-        card.style.display = "none";
-        plate.style.width - "650px";
-        pack.style.display = "block";
-    }
-}
