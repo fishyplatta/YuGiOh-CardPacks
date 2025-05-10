@@ -99,3 +99,19 @@ button
 {
     border-radius: 8px;
 }
+
+#moving-card
+{
+    display: none;
+    transition: none;
+}
+
+#pile
+{
+    height: 808px;
+    width: 553px;
+    background-color: var(--primary-color);
+    display: none;
+    margin: 0 auto;
+    border-radius: 8px;
+}
