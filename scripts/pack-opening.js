@@ -11,40 +11,52 @@ const moving_img = document.getElementById("moving-img");
 const card_back = document.getElementById("card-back");
 const card_front = document.getElementById("card-front");
 
-var files = 
-[
+//packs
+const deletion_pack = [
+  "channel-deletion.jpg",
+  "channel-deletion.jpg", 
+  "channel-deletion.jpg", 
+  "channel-deletion.jpg", 
+  "channel-deletion.jpg", 
+  "channel-deletion.jpg", 
+  "channel-deletion.jpg", 
+  "channel-deletion.jpg", 
+  "channel-deletion.jpg"
+];
+const filler_pack = [
   "carrit.jpg",
   "chadius.jpg",
-  "channel-deletion.jpg",
-  "g-byakko.jpg",
-  "gtlw.jpg",
+  "onlyhope.jpg",
   "last-laugh.jpg",
-  "mimikyuchris.jpg", 
-  "russian-snow.jpg",
-  "scally-wagon.jpg",
-  "scar-apartheid.jpg", 
-  "shhark.jpg", 
-  "skelly-pup.jpg",
-  "sloth.jpg",
-  "teal-magician.jpg", 
-  "yenfestation.jpg",
-  "yy-of-the-undercity.jpg",
-  "yy-the-wildfyre.jpg"
+  "gtlw.jpg",
+  "teal-magician.jpg",
+  "scar-apartheid.jpg",
+  "toff-e.jpg",
+  "waiting-for-youngpups.jpg"
 ];
+var packs = [deletion_pack, filler_pack];
 
-var remaining_cards = 0;
+var cur_card = 0;
+var selected_pack;
 var selected_card;
 
-var firstClick = true;
+var firstClick = false;
 var id = null;
 
-function RandCard()
+function RandPack()
 {
-    const random = Math.floor(Math.random() * files.length)
-    selected_card = "media/cards/" + files[random];
+  cur_card = 0;
+  const random = Math.floor(Math.random() * packs.length);
+  selected_pack = packs[random];
 }
 
-function OpenPack()
+function NextCard()
+{
+  selected_card = "media/cards/" + selected_pack[cur_card];
+  cur_card++;
+}
+
+function AnimateWindow()
 {
   var width = 650;
   clearInterval(id);
@@ -57,6 +69,8 @@ function OpenPack()
       pack.style.display = "none";
       container.style.display = "block";
       pile.style.display = "block";
+      RandPack();
+      firstClick = true;
     } 
     else 
     {
@@ -67,22 +81,41 @@ function OpenPack()
   }
 }
 
+function OpenPack()
+{
+  if(plate.style.width != "1400px")
+  {
+    AnimateWindow();
+  }
+  else if(firstClick)
+  {
+    RandPack();
+    card_front.style.display = "block";
+    cur_card = 0;
+    pack.style.display = "none";
+    container.style.display = "block"; 
+    firstClick = false;
+  }
+}
+
 function FlipCard()
 {
   container.style.transitionDuration = "0.5s";
   container.classList.toggle("is-flipped")
-  RandCard();
+  NextCard();
   display_card.src = selected_card;
   moving_img.src = selected_card;
 }
 
 function MoveCard()
 {
-  card_back.style.display = "none";
-  container.style.transitionDuration = "0s";
-  container.classList.toggle("is-flipped")
-  moving_card.style.display = "block";
-  MoveAnimation();
+    card_back.style.display = "none";
+    container.style.transitionDuration = "0s";
+    container.classList.toggle("is-flipped")
+    moving_card.style.display = "block";
+    if(cur_card == 9)
+      card_front.style.display = "none";
+    MoveAnimation();
 }
 
 function MoveAnimation()
@@ -99,6 +132,12 @@ function MoveAnimation()
       moving_card.style.display = "none";
       moving_card.style.left = 0+"px";
       card_back.style.display = "block";
+      if(cur_card == 9)
+      {
+        container.style.display = "none";
+        pack.style.display = "block";
+        firstClick = true;
+      }
     } 
     else 
     {
