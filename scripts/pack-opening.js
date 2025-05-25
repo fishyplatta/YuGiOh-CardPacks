@@ -12,29 +12,41 @@ const card_back = document.getElementById("card-back");
 const card_front = document.getElementById("card-front");
 
 //packs
-const deletion_pack = [
-  "channel-deletion.jpg",
-  "channel-deletion.jpg", 
-  "channel-deletion.jpg", 
-  "channel-deletion.jpg", 
-  "channel-deletion.jpg", 
-  "channel-deletion.jpg", 
-  "channel-deletion.jpg", 
-  "channel-deletion.jpg", 
-  "channel-deletion.jpg"
-];
-const filler_pack = [
-  "carrit.jpg",
-  "chadius.jpg",
-  "onlyhope.jpg",
-  "last-laugh.jpg",
-  "gtlw.jpg",
-  "teal-magician.jpg",
-  "scar-apartheid.jpg",
-  "toff-e.jpg",
-  "waiting-for-youngpups.jpg"
-];
+const deletion_pack =
+{ 
+  cards:
+  [
+    "channel-deletion.jpg",
+    "channel-deletion.jpg", 
+    "channel-deletion.jpg", 
+    "channel-deletion.jpg", 
+    "channel-deletion.jpg", 
+    "channel-deletion.jpg", 
+    "channel-deletion.jpg", 
+    "channel-deletion.jpg", 
+    "channel-deletion.jpg"
+  ],
+  used: false
+}
+const filler_pack = 
+{
+  cards:
+  [
+    "carrit.jpg",
+    "chadius.jpg",
+    "onlyhope.jpg",
+    "last-laugh.jpg",
+    "gtlw.jpg",
+    "teal-magician.jpg",
+    "scar-apartheid.jpg",
+    "toff-e.jpg",
+    "waiting-for-youngpups.jpg"
+  ],
+  used: false
+};
 var packs = [deletion_pack, filler_pack];
+var pack_count = 0;
+const PACK_COUNT_MAX = 2;
 
 var cur_card = 0;
 var selected_pack;
@@ -46,13 +58,25 @@ var id = null;
 function RandPack()
 {
   cur_card = 0;
-  const random = Math.floor(Math.random() * packs.length);
-  selected_pack = packs[random];
+  if(pack_count != PACK_COUNT_MAX)
+  {
+    do
+    {
+      const random = Math.floor(Math.random() * packs.length);
+      selected_pack = packs[random];
+    }while(selected_pack.used == true)
+    selected_pack.used = true;
+    pack_count++;
+  }
+  else
+  {
+    window.location.replace("tmp.html");
+  }
 }
 
 function NextCard()
 {
-  selected_card = "media/cards/" + selected_pack[cur_card];
+  selected_card = "media/cards/" + selected_pack.cards[cur_card];
   cur_card++;
 }
 
