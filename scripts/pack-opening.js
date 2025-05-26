@@ -4,6 +4,11 @@ const container = document.getElementById("card-container");
 const pile = document.getElementById("pile");
 const pile_img = document.getElementById("pile-img");
 
+// constants for "credits" and "binder"
+const credits = document.getElementById("credits");
+const binder = document.getElementById("binder");
+const backButton = document.getElementById("backButton");
+
 //cards
 const display_card = document.getElementById("display-card");
 const moving_card = document.getElementById("moving-card");
@@ -55,6 +60,9 @@ var selected_card;
 var firstClick = false;
 var id = null;
 
+//For move animation later, refers to position of the pile. 
+var pile_pos = 0;
+
 function RandPack()
 {
   cur_card = 0;
@@ -70,7 +78,8 @@ function RandPack()
   }
   else
   {
-    window.location.replace("tmp.html");
+  //temporarily turned this off for testing purposes lol
+	//window.location.replace("tmp.html");
   }
 }
 
@@ -93,6 +102,11 @@ function AnimateWindow()
       pack.style.display = "none";
       container.style.display = "block";
       pile.style.display = "block";
+	  
+	//unhides the credits button and binder on pack opening 
+	  credits.style.display = "block";
+	  binder.style.display = "inline-flex";
+	  
       RandPack();
       firstClick = true;
     } 
@@ -100,7 +114,8 @@ function AnimateWindow()
     {
       width+=5;
       plate.style.width = width + "px";
-      pack.style.marginLeft = "40.5px";
+      pack.style.marginLeft = "50px";
+	  pack.style.float = "left";
     }
   }
 }
@@ -137,19 +152,32 @@ function MoveCard()
     container.style.transitionDuration = "0s";
     container.classList.toggle("is-flipped")
     moving_card.style.display = "block";
-    if(cur_card == 9)
-      card_front.style.display = "none";
-    MoveAnimation();
+    
+	if(cur_card == 9)
+	{
+		card_front.style.display = "none";
+		
+	//prevent further moving around of other elements	
+		pack.style.marginRight = "0px";
+	}
+	MoveAnimation();
 }
 
+//Made some adjustments to the dimensions due to addition of the credits button
+//Changed position of the pile to a variable for possible adjustments later
+ 
 function MoveAnimation()
 {
   var pos = 0;
+  
+//Adjust this variable if pile will be moved somewhere
+  pile_pos = 609;
+  
   clearInterval(id);
   id = setInterval(frame, 1);
   function frame() 
   {
-    if (pos == 679) 
+    if (pos == pile_pos) 
     {
       clearInterval(id);
       pile_img.src = selected_card;
@@ -163,10 +191,47 @@ function MoveAnimation()
         firstClick = true;
       }
     } 
-    else 
+    else if (pos < pile_pos)
     {
       pos+=7;
-      moving_card.style.left = pos + "px";
+	  
+	  if (pile_pos-pos < 7)
+	  {
+//Just in case the dimensions aren't divisible by 7		  
+		  pos+=pile_pos-pos;
+	  }
+	  
+	  moving_card.style.left = pos + "px";
     }
+	else 
+	{
+
+//Added this to stop the animation even if dimensions weren't exact		
+		moving_card.style.left = pile_pos;
+	}
   }
+}
+
+function openBinder()
+{
+	//initiates transition
+		binder.style.width = "1300px";
+		
+		binder.addEventListener("transitionend", viewBinder); 
+}
+
+function viewBinder () 
+{
+	if (binder.style.width == "1300px")
+	{
+	//shows back button
+		backButton.style.display = "inherit";
+	}
+}
+
+function closeBinder()
+{
+	binder.style.width = "0px";
+	backButton.style.display = "none";
+	
 }

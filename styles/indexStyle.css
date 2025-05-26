@@ -18,19 +18,29 @@ body
     background-color: var(--accent-1);
 }
 
+/*   increased height to maintain look with padding */
+/*   padding is removed so the credits button and binder can be slightly taller */
 #card-section
 {
     width: 650px;
-    height: 830px;
+    height: 880px;
     margin: auto auto;
     background-color: var(--secondary-color);
-    justify-items: center;
+
+/* 	added to center the card packs vertically */
+    align-items: center;
+	
     box-shadow: 10px 10px var(--accent-2);
     border-radius: 10px;
-    padding-top: 30px;
+
+ /* removed padding so the credits button could be aligned vertically a bit different   
+	padding-top: 30px; */
+
     display: flex;
     flex-direction: row;
+	justify-content: center;
 }
+
 
 button
 {
@@ -42,28 +52,37 @@ button
 {
     color: transparent;
     height: 808px;
-    width: 553;
+    width: 553px;
     margin: 0 auto;
     background-image: url("media/card-back.jpg");
 }
 
+/* Funny adjustment to animation for infinite wiggles */
 #pack-img
 {
     animation-name: wiggle;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
-    animation-play-state: paused;
-    animation-iteration-count: 1;
+	
+	/* Removed 'play state paused' so one cycle of animation plays automatically on load-in, prevents the thing where it freezes in the middle of an animation when the cursor is not hovering
+	
+	animation-play-state: paused;
+	*/
 }
 
 #pack-img:hover
 {
     animation-play-state: running;
+	
+	/* Moved iteration count here so that wiggle only happens during hover and resets when not hovering*/	
+	animation-iteration-count: infinite;
+		
 }
 
+/*Adjusted dimensions to accomodate the binder button*/
 #card-container
 {
-    margin-left: 40.5px; 
+    margin-left: 50px; 
     position: relative;
     transform-style: preserve-3d;
     transform-origin: center right;
@@ -114,4 +133,78 @@ button
     display: none;
     margin: 0 auto;
     border-radius: 8px;
+}
+
+/* Credits portion
+Will be adjusting things here design wise */
+#credits 
+{
+	display: none;
+	height: 825px;
+	width: 75px;
+    background-color: var(--accent-2);
+	margin-right: 50px;
+	border-radius: 8px;
+}
+
+.creditsButton
+{
+	height: 825px;
+	width: 75px;
+    background-color: transparent;
+	display: inherit;
+    margin-right: inherit;
+}
+
+#binder 
+{
+	display: none;
+	height: 825px;
+	width: 0px;
+    background-color: var(--accent-2);
+	border-radius: 8px;
+	
+	transition: width;
+	transition-duration: 2s;
+	position: absolute;
+	right: 115px;
+	
+}
+
+.table 
+{
+    margin: 20px auto;
+	width: 70%;
+	display: inherit;
+	overflow: auto;
+}
+
+.creditView
+{
+	height: 750px;
+	width: 20%;
+    background-color: var(--primary-color);
+	display: inherit;
+    margin: auto;
+	border-radius: 8px;
+	justify-content: center;
+    align-items: center;
+	
+}
+
+.back
+{
+	height: 100px;
+	width: 70%;
+    background-color: var(--secondary-color);
+	display: inherit;
+    margin: auto;
+	border-radius: 8px;
+	justify-content: center;
+    align-items: center;
+}
+
+#backButton
+{	
+	display: none;
 }
