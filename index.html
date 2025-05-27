@@ -11,14 +11,13 @@
 
 <body>
     <section id="card-section">
-		<div id="pack">
-
+	<div id="pack">
 <! Removed the button here since it was messing with the alignments on my device for some reason>
-			<img src="media/card-pack.jpg" alt="" id="pack-img" onclick="OpenPack()">
-		</div>
+		<img src="media/card-pack.jpg" alt="" id="pack-img" onclick="OpenPack()">
+	</div>
         <div id="card-container" >
             <div class="card-side" id="card-front">
-				<img src="media/card-back.jpg" alt="" class="card-img"onclick="FlipCard()">
+		<img src="media/card-back.jpg" alt="" class="card-img"onclick="FlipCard()">
             </div>
             <div class="card-side" id="card-back">
                 <img src="" alt="" class="card-img" id="display-card" onclick="MoveCard()">
@@ -28,15 +27,14 @@
             </div>
         </div>
         <div id="pile">
-			<img src="" alt="" class="card-img" id="pile-img">
+		<img src="" alt="" class="card-img" id="pile-img">
         </div>
 
 <! Additional divisions for the credits, the idea is that it styled as a "binder" with the complete card collection
-Images are currently placeholders>
-		<div id="credits">
-			<button type="button" class="creditsButton" onclick="openBinder()"> 
-			</button>
-		</div>
+Images are currently placeholders
+UPDATE: Resizing issue with the binder is now fixed, works the same even with different screen sizes>
+						
+	<div id="credits">
 		<div id="binder">
 			<div id="table" class ="table">
 				<table>
@@ -75,10 +73,13 @@ Images are currently placeholders>
 			</div>
 			<div class="creditView">
 				<button id="backButton" type="button" class="back" onclick="closeBinder()">	
-						Back to pulling!
+					Back to pulling!
 				</button>
 			</div>
 		</div>
+		<button type="button" class="creditsButton" onclick="openBinder()"> 
+		</button>
+	</div>	
     </section>	
 </body>
 <script src="scripts/pack-opening.js"></script>
