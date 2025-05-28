@@ -1,0 +1,54 @@
+{
+    "cards" : [
+        {"file" : "carrit", "pulled" : false},
+        {"file" : "chadius", "pulled" : false},
+        {"file" : "channel-deletion", "pulled" : false},
+        {"file" : "g-byakko", "pulled" : false},
+        {"file" : "gtlw", "pulled" : false},
+        {"file" : "last-laugh", "pulled" : false},
+        {"file" : "mimikyuchris", "pulled" : false},
+        {"file" : "onlyhope", "pulled" : false},
+        {"file" : "piece-of-hope", "pulled" : false},
+        {"file" : "russian-snow", "pulled" : false},
+        {"file" : "scally-wagon", "pulled" : false},
+        {"file" : "scar-apartheid", "pulled" : false},
+        {"file" : "shhark", "pulled" : false},
+        {"file" : "skelly-pup", "pulled" : false},
+        {"file" : "sloth", "pulled" : false},
+        {"file" : "teal-magician", "pulled" : false},
+        {"file" : "toff-e", "pulled" : false},
+        {"file" : "waiting-for-youngpups", "pulled" : false},
+        {"file" : "yenfenstation", "pulled" : false},
+        {"file" : "yy-of-the-undercity", "pulled" : false},
+        {"file" : "yy-the-wildfyre", "pulled" : false}
+    ],
+    "packs" : [
+        {"cards" : [2,2,2,2,2,2,2,2,2], "opened": false},
+        {"cards" : [0,1,7,5,4,15,11,6,17], "opened": false},
+        {"cards" : [3,10,13,9,12,14,16,18,20], "opened": false}
+    ]
+}
+
+/*
+1.carrit                    #USED#
+2.chadius                   #USED#
+3.channel-deletion          #USED#
+4.g-byakko                  #USED#
+5.gtlw                      #USED#
+6.last-laugh                #USED#
+7.mimikyuchris              #USED#
+8.onlyhope                  #USED#
+9.piece-of-hope             #USED#
+10.russian-snow             #USED#
+11.scally-wagon             #USED#
+12.scar-apartheid           #USED#
+13.shhark                   #USED#
+14.skelly-pup               #USED#
+15.sloth                    #USED#
+16.teal-magician            #USED#
+17.toff-e                   #USED#
+18.waiting-for-youngpups    #USED#
+19.yenfestation             #USED#
+20.yy-of-the-undercity
+21.yy-the-wildfyre          #USED#
+*/
