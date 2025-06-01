@@ -39,16 +39,44 @@ const cards =
   {"file" : "waiting-for-youngpups", "pulled" : false},
   {"file" : "yenfestation", "pulled" : false},
   {"file" : "yy-of-the-undercity", "pulled" : false},
-  {"file" : "yy-the-wildfyre", "pulled" : false}
+  {"file" : "yy-the-wildfyre", "pulled" : false},
+  {"file" : "cackling-city", "pulled" : false},
+  {"file" : "cs-the-wildfyre", "pulled" : false},
+  {"file" : "dd-the-wildfyre", "pulled" : false},
+  {"file" : "fezzdoge", "pulled" : false},
+  {"file" : "haha-youngpups", "pulled" : false},
+  {"file" : "jumpscare", "pulled" : false},
+  {"file" : "lost-shore", "pulled" : false},
+  {"file" : "lostshore-yeeter", "pulled" : false},
+  {"file" : "louis-cypher", "pulled" : false},
+  {"file" : "lucian-last-pup", "pulled" : false},
+  {"file" : "nebby", "pulled" : false},
+  {"file" : "rp-the-wildfyre", "pulled" : false},
+  {"file" : "seer-cipher", "pulled" : false},
+  {"file" : "sesbian-lex", "pulled" : false},
+  {"file" : "toff-e-fyrefly", "pulled" : false},
+  {"file" : "toystory", "pulled" : false},
+  {"file" : "void", "pulled" : false},
+  {"file" : "waned-wolf", "pulled" : false},
+  {"file" : "wild-frontiers", "pulled" : false},
+  {"file" : "yanksky", "pulled" : false},
+  {"file" : "yena-secondblood", "pulled" : false},
+  {"file" : "youngpup-linked", "pulled" : false},
+  {"file" : "youngpup-star", "pulled" : false},
+  {"file" : "youngpup-token", "pulled" : false},
+  {"file" : "youngpup-zombie", "pulled" : false}
 ]
 const packs = 
 [
   {"cards" : [2,2,2,2,2,2,2,2,2], "opened": false},
   {"cards" : [0,1,7,5,4,15,11,6,17], "opened": false},
-  {"cards" : [3,10,13,9,12,14,16,18,20], "opened": false}
+  {"cards" : [3,10,13,9,12,14,16,18,20], "opened": false},
+  {"cards" : [21,24,31,33,38,41,26,42,22], "opened": false},
+  {"cards" : [27,25,44,45,37,29,34,35,23], "opened": false},
+  {"cards" : [2,39,40,43,2,36,44,28,32], "opened": false}
 ]
 var pack_count = 0;
-const PACK_COUNT_MAX = 3;
+const PACK_COUNT_MAX = 6;
 
 var cur_card = 0;
 var selected_pack;
