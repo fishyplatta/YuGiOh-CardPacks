@@ -117,7 +117,12 @@ button
 .card-img
 {
     border-radius: 8px;
+
+/*Website now automatically resizes the images*/
+	width: 553px;
+    height: 808px;
 }
+
 
 #moving-card
 {
