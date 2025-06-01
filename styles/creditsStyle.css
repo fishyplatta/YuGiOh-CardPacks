@@ -1,0 +1,94 @@
+:root
+{
+    --primary-color: #a94c3a;
+    --secondary-color: #dbaa5d;
+    --accent-1: #f9f9f9;
+    --accent-2: #474749;
+}
+
+body
+{
+    background-color: var(--primary-color);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+    justify-items: right;
+
+}
+
+.card
+{
+    margin: 10px;
+    background-color: var(--secondary-color);
+    height: 150px;
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 0px 10px var(--accent-2);
+    justify-items: center;
+}
+
+#shore-card
+{
+    grid-row: 1;
+    grid-column: 1 / 3;
+    justify-self: center;
+}
+
+#spatterminal-card
+{
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#mizuhashi-card
+{
+    grid-row: 2;
+    grid-column: 2;
+    justify-self: left;
+}
+
+#fezzdog-card
+{
+    grid-row: 3;
+    grid-column: 1;
+    justify-self: right;
+}
+
+#gbyakko-card
+{
+    grid-row: 3;
+    grid-column: 2;
+    justify-self: left;
+}
+
+a
+{
+    padding: 10px;
+    width: 120px;
+    margin: auto;
+    justify-self: center;
+    grid-row: 4;
+    grid-column: 1 / 3;
+    text-decoration: none;
+    background-color: var(--secondary-color);
+    text-align: center;
+    color: black;
+}
+
+a:hover
+{
+    transition: ease-in .2s;
+    border-radius: 7px;
+    box-shadow: 0px 10px var(--accent-2);
+}
+
+p
+{
+    background-color: var(--secondary-color);
+    padding: 10px;
+    width: 250px;
+    justify-self: center;
+    grid-row: 5;
+    grid-column: 1 / 3;
+}

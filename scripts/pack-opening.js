@@ -60,9 +60,11 @@ var id = null;
 //For move animation later, refers to position of the pile. 
 var pile_pos = 0;
 
+//For Randomizer
+var randomize = false;
+
 function RandPack()
 {
-  cur_card = 0;
   if(pack_count != PACK_COUNT_MAX)
   {
     do
@@ -80,12 +82,25 @@ function RandPack()
   }
 }
 
+function RandCard()
+{
+  const random = Math.floor(Math.random() * cards.length);
+  selected_card = "media/cards/" + cards[random].file + ".jpg";
+}
+
 function NextCard()
 {
-  //the cards in the packs store the index then we go to cards to get the actual data
-  var card_index = selected_pack.cards[cur_card];
-  selected_card = "media/cards/" + cards[card_index].file + ".jpg";
-  cards[card_index].pulled = true;
+  if(!randomize)
+  {
+    //the cards in the packs store the index then we go to cards to get the actual data
+    var card_index = selected_pack.cards[cur_card];
+    selected_card = "media/cards/" + cards[card_index].file + ".jpg";
+    cards[card_index].pulled = true;
+  }
+  else
+  {
+    RandCard();
+  }
   cur_card++;
 }
 
@@ -120,6 +135,24 @@ function AnimateWindow()
   }
 }
 
+//Validation for deciding whether to choose a random card or pack
+function ChoosePackOrCard()
+{
+  pack.style.display = "none";
+  container.style.display = "block";
+  card_front.style.display = "block";
+  cur_card = 0;
+  if(!randomize)
+  {
+    RandPack();
+  }
+  else
+  {
+    RandCard();
+  }
+  firstClick = false;
+}
+
 function OpenPack()
 {
   if(plate.style.width != "1400px")
@@ -128,12 +161,7 @@ function OpenPack()
   }
   else if(firstClick)
   {
-    RandPack();
-    card_front.style.display = "block";
-    cur_card = 0;
-    pack.style.display = "none";
-    container.style.display = "block"; 
-    firstClick = false;
+    ChoosePackOrCard();
   }
 }
 
@@ -234,4 +262,9 @@ function closeBinder()
 	binder.style.width = "0px";
 	backButton.style.display = "none";
 	
+}
+
+function Cheater()
+{
+  randomize = true;
 }

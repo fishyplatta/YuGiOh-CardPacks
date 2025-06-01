@@ -210,3 +210,10 @@ Update: Styles adjusted to make the binder more responsive to screen size change
 {	
 	display: none;
 }
+
+#cheat-button
+{
+    width: 100%;
+    height: 30px;
+    color: #f9f9f9;
+}
