@@ -82,6 +82,7 @@ function RandPack()
 
 function NextCard()
 {
+  //the cards in the packs store the index then we go to cards to get the actual data
   var card_index = selected_pack.cards[cur_card];
   selected_card = "media/cards/" + cards[card_index].file + ".jpg";
   cards[card_index].pulled = true;
