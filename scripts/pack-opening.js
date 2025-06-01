@@ -17,41 +17,38 @@ const card_back = document.getElementById("card-back");
 const card_front = document.getElementById("card-front");
 
 //packs
-const deletion_pack =
-{ 
-  cards:
-  [
-    "channel-deletion.jpg",
-    "channel-deletion.jpg", 
-    "channel-deletion.jpg", 
-    "channel-deletion.jpg", 
-    "channel-deletion.jpg", 
-    "channel-deletion.jpg", 
-    "channel-deletion.jpg", 
-    "channel-deletion.jpg", 
-    "channel-deletion.jpg"
-  ],
-  used: false
-}
-const filler_pack = 
-{
-  cards:
-  [
-    "carrit.jpg",
-    "chadius.jpg",
-    "onlyhope.jpg",
-    "last-laugh.jpg",
-    "gtlw.jpg",
-    "teal-magician.jpg",
-    "scar-apartheid.jpg",
-    "toff-e.jpg",
-    "waiting-for-youngpups.jpg"
-  ],
-  used: false
-};
-var packs = [deletion_pack, filler_pack];
+const cards = 
+[
+  {"file" : "carrit", "pulled" : false},
+  {"file" : "chadius", "pulled" : false},
+  {"file" : "channel-deletion", "pulled" : false},
+  {"file" : "g-byakko", "pulled" : false},
+  {"file" : "gtlw", "pulled" : false},
+  {"file" : "last-laugh", "pulled" : false},
+  {"file" : "mimikyuchris", "pulled" : false},
+  {"file" : "onlyhope", "pulled" : false},
+  {"file" : "piece-of-hope", "pulled" : false},
+  {"file" : "russian-snow", "pulled" : false},
+  {"file" : "scally-wagon", "pulled" : false},
+  {"file" : "scar-apartheid", "pulled" : false},
+  {"file" : "shhark", "pulled" : false},
+  {"file" : "skelly-pup", "pulled" : false},
+  {"file" : "sloth", "pulled" : false},
+  {"file" : "teal-magician", "pulled" : false},
+  {"file" : "toff-e", "pulled" : false},
+  {"file" : "waiting-for-youngpups", "pulled" : false},
+  {"file" : "yenfestation", "pulled" : false},
+  {"file" : "yy-of-the-undercity", "pulled" : false},
+  {"file" : "yy-the-wildfyre", "pulled" : false}
+]
+const packs = 
+[
+  {"cards" : [2,2,2,2,2,2,2,2,2], "opened": false},
+  {"cards" : [0,1,7,5,4,15,11,6,17], "opened": false},
+  {"cards" : [3,10,13,9,12,14,16,18,20], "opened": false}
+]
 var pack_count = 0;
-const PACK_COUNT_MAX = 2;
+const PACK_COUNT_MAX = 3;
 
 var cur_card = 0;
 var selected_pack;
@@ -72,8 +69,8 @@ function RandPack()
     {
       const random = Math.floor(Math.random() * packs.length);
       selected_pack = packs[random];
-    }while(selected_pack.used == true)
-    selected_pack.used = true;
+    }while(selected_pack.opened == true)
+    selected_pack.opened = true;
     pack_count++;
   }
   else
@@ -85,7 +82,9 @@ function RandPack()
 
 function NextCard()
 {
-  selected_card = "media/cards/" + selected_pack.cards[cur_card];
+  var card_index = selected_pack.cards[cur_card];
+  selected_card = "media/cards/" + cards[card_index].file + ".jpg";
+  cards[card_index].pulled = true;
   cur_card++;
 }
 
@@ -103,9 +102,9 @@ function AnimateWindow()
       container.style.display = "block";
       pile.style.display = "block";
 	  
-	//unhides the credits button and binder on pack opening 
-	  credits.style.display = "block";
-	  binder.style.display = "inline-flex";
+	    //unhides the credits button and binder on pack opening 
+	    credits.style.display = "block";
+	    binder.style.display = "inline-flex";
 	  
       RandPack();
       firstClick = true;
