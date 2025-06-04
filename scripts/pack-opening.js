@@ -135,6 +135,7 @@ function RandCard()
 {
   const random = Math.floor(Math.random() * cards.length);
   selected_card = "media/cards/" + cards[random].file + ".jpg";
+  cardFinder = random;
 }
 
 function NextCard()
