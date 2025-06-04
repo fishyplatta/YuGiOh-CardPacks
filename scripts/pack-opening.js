@@ -1,5 +1,6 @@
 const plate = document.getElementById("card-section");
 const pack = document.getElementById("pack");
+const packImg = document.getElementById("pack-img");
 const container = document.getElementById("card-container");
 const pile = document.getElementById("pile");
 const pile_img = document.getElementById("pile-img");
@@ -8,6 +9,9 @@ const pile_img = document.getElementById("pile-img");
 const credits = document.getElementById("credits");
 const binder = document.getElementById("binder");
 const backButton = document.getElementById("backButton");
+
+// site credits screen
+const complete_Button = document.getElementById("completeButton");
 
 //cards
 const display_card = document.getElementById("display-card");
@@ -19,56 +23,56 @@ const card_front = document.getElementById("card-front");
 //packs
 const cards = 
 [
-  {"file" : "carrit", "pulled" : false},
-  {"file" : "chadius", "pulled" : false},
-  {"file" : "channel-deletion", "pulled" : false},
-  {"file" : "g-byakko", "pulled" : false},
-  {"file" : "gtlw", "pulled" : false},
-  {"file" : "last-laugh", "pulled" : false},
-  {"file" : "mimikyuchris", "pulled" : false},
-  {"file" : "onlyhope", "pulled" : false},
-  {"file" : "piece-of-hope", "pulled" : false},
-  {"file" : "russian-snow", "pulled" : false},
-  {"file" : "scally-wagon", "pulled" : false},
-  {"file" : "scar-apartheid", "pulled" : false},
-  {"file" : "shhark", "pulled" : false},
-  {"file" : "skelly-pup", "pulled" : false},
-  {"file" : "sloth", "pulled" : false},
-  {"file" : "teal-magician", "pulled" : false},
-  {"file" : "toff-e", "pulled" : false},
-  {"file" : "waiting-for-youngpups", "pulled" : false},
-  {"file" : "yenfestation", "pulled" : false},
-  {"file" : "yy-of-the-undercity", "pulled" : false},
-  {"file" : "yy-the-wildfyre", "pulled" : false},
-  {"file" : "cackling-city", "pulled" : false},
-  {"file" : "cs-the-wildfyre", "pulled" : false},
-  {"file" : "dd-the-wildfyre", "pulled" : false},
-  {"file" : "fezzdoge", "pulled" : false},
-  {"file" : "haha-youngpups", "pulled" : false},
-  {"file" : "jumpscare", "pulled" : false},
-  {"file" : "lost-shore", "pulled" : false},
-  {"file" : "lostshore-yeeter", "pulled" : false},
-  {"file" : "louis-cypher", "pulled" : false},
-  {"file" : "lucian-last-pup", "pulled" : false},
-  {"file" : "nebby", "pulled" : false},
-  {"file" : "rp-the-wildfyre", "pulled" : false},
-  {"file" : "seer-cipher", "pulled" : false},
-  {"file" : "sesbian-lex", "pulled" : false},
-  {"file" : "toff-e-fyrefly", "pulled" : false},
-  {"file" : "toystory", "pulled" : false},
-  {"file" : "void", "pulled" : false},
-  {"file" : "waned-wolf", "pulled" : false},
-  {"file" : "wild-frontiers", "pulled" : false},
-  {"file" : "yanksky", "pulled" : false},
-  {"file" : "yena-secondblood", "pulled" : false},
-  {"file" : "youngpup-linked", "pulled" : false},
-  {"file" : "youngpup-star", "pulled" : false},
-  {"file" : "youngpup-token", "pulled" : false},
-  {"file" : "youngpup-zombie", "pulled" : false}
+	{"file" : "carrit", "pulled" : false, "name" : "Carrit", "by" : "shhark"},
+	{"file" : "chadius", "pulled" : false, "name" : "Chadius IV, Future Youngpup", "by": "Chadius DaLion IV"},
+	{"file" : "channel-deletion", "pulled" : false, "name" : "Channel Deletion!!!", "by": "Mizuhashi"},
+	{"file" : "g-byakko", "pulled" : false, "name" : "Youngpup G Byakko", "by": "G Byakko"},
+	{"file" : "gtlw", "pulled" : false, "name" : "Get the Last Word", "by": "Mizuhashi"},
+	{"file" : "last-laugh", "pulled" : false, "name" : "Last Laugh", "by": "Mizuhashi"},
+	{"file" : "mimikyuchris", "pulled" : false, "name" : "Mimikyuchris", "by": "MimikyuChris"},
+	{"file" : "onlyhope", "pulled" : false, "name" : "0nlyHoPe", "by": "Bernie [0nlyHoPe]"},
+	{"file" : "piece-of-hope", "pulled" : false, "name" : "Little Piece of Hope", "by": "Little Piece of Hope"},
+	{"file" : "russian-snow", "pulled" : false, "name" : "TheRussianSnowman Last of the Snowpup's", "by": "TheRussianSnowman"},
+	{"file" : "scally-wagon", "pulled" : false, "name" : "Scally_Wagon", "by": "Scally_Wagon"},
+	{"file" : "scar-apartheid", "pulled" : false, "name" : "S.C.A.R. Apartheid", "by": "Mizuhashi"},
+	{"file" : "shhark", "pulled" : false, "name" : "Youngpup Shhark", "by": "shhark"},
+	{"file" : "skelly-pup", "pulled" : false, "name" : "Skelly in the 'Pup' Closet", "by": "Restless Skellywag"},
+	{"file" : "sloth", "pulled" : false, "name" : "Idol Fan Sloth", "by": "Idol Fan Sloth (ARSLOTHES)"},
+	{"file" : "teal-magician", "pulled" : false, "name" : "Teal Magician Youngpup", "by": "Teal"},
+	{"file" : "toff-e", "pulled" : false, "name" : "Toff E, Fyrefly Scheduler", "by": "Toff E Willow"},
+	{"file" : "waiting-for-youngpups", "pulled" : false, "name" : "Waiting for the Youngpups", "by": "Idol Fan Sloth (ARSLOTHES)"},
+	{"file" : "yenfestation", "pulled" : false, "name" : "The Yenfestation", "by": "Samo"},
+	{"file" : "yy-of-the-undercity", "pulled" : false, "name" : "Yena Youngblood of the Undercity", "by": "Mizuhashi"},
+	{"file" : "yy-the-wildfyre", "pulled" : false, "name" : "Yena Youngblood the Wildfyre", "by": "Mizuhashi"},
+	{"file" : "cackling-city", "pulled" : false, "name" : "The Cackling City", "by": "Toff E Willow"},
+	{"file" : "cs-the-wildfyre", "pulled" : false, "name" : "Cersea Soulstorm the Wildfyre", "by": "Mizuhashi"},
+	{"file" : "dd-the-wildfyre", "pulled" : false, "name" : "Daisy Dandelion the Wildfyre", "by": "Fezzdog"},
+	{"file" : "fezzdoge", "pulled" : false, "name" : "Fezzdog", "by": "Fezzdog"},
+	{"file" : "haha-youngpups", "pulled" : false, "name" : "HAHAHAHAHA! The Youngpups are Here!", "by": "Fishy, Mizuhashi, Fezzdog"},
+	{"file" : "jumpscare", "pulled" : false, "name" : "White Woman Jumpscare", "by": "Rubbertoe"},
+	{"file" : "lost-shore", "pulled" : false, "name" : "Lost Oracle of Shore", "by": "LostShore"},
+	{"file" : "lostshore-yeeter", "pulled" : false, "name" : "LostShore First Yeeter of Yena", "by": "LostShore"},
+	{"file" : "louis-cypher", "pulled" : false, "name" : "Louis Cypher, Youngpup Yilkmancer", "by": "Louis Cypher"},
+	{"file" : "lucian-last-pup", "pulled" : false, "name" : "Lucian, The Last YoungPup", "by": "Lucian, The Last Youngpup"},
+	{"file" : "nebby", "pulled" : false, "name" : "The Poppet Menace: Nebby", "by": "Nebby, Fezzdog, G Byakko"},
+	{"file" : "rp-the-wildfyre", "pulled" : false, "name" : "Riki Poppet the Wildfyre", "by": "G Byakko"},
+	{"file" : "seer-cipher", "pulled" : false, "name" : "Cackling Youngpup Seer - CipherEnigma", "by": "CipherEnigma"},
+	{"file" : "sesbian-lex", "pulled" : false, "name" : "Sesbian Lex", "by": "Teal"},
+	{"file" : "toff-e-fyrefly", "pulled" : false, "name" : "Toff E, the Fyrefly", "by": "Toff E Willow"},
+	{"file" : "toystory", "pulled" : false, "name" : "Toystoryteletubbyism", "by": "Toystoryteletubbyism"},
+	{"file" : "void", "pulled" : false, "name" : "Youngpup Void Call", "by": "t̴̥̆h̵̗̋e̶͕͂ ̵̣̍v̸͉̈́o̵͖̅i̵͝d"},
+	{"file" : "waned-wolf", "pulled" : false, "name" : "The Wolf Who Waned", "by": "Mizuhashi"},
+	{"file" : "wild-frontiers", "pulled" : false, "name" : "WILD FRONTIERS", "by": "KJ_PlayZ"},
+	{"file" : "yanksky", "pulled" : false, "name" : "Yansky the Lurker", "by": "Yansky"},
+	{"file" : "yena-secondblood", "pulled" : false, "name" : "Yena Secondblood", "by": "Shhark, Mizuhashi"},
+	{"file" : "youngpup-linked", "pulled" : false, "name" : "???", "by": "Slylander"},
+	{"file" : "youngpup-star", "pulled" : false, "name" : "Youngpup Star", "by": "StarCrap"},
+	{"file" : "youngpup-token", "pulled" : false, "name" : "Youngpup Token", "by": "Mizuhashi"},
+	{"file" : "youngpup-zombie", "pulled" : false, "name" : "Youngpup Zombie", "by": "StarCrap"}
 ]
 const packs = 
 [
-  {"cards" : [2,2,2,2,2,2,2,2,2], "opened": false},
+//  {"cards" : [2,2,2,2,2,2,2,2,2], "opened": false}, => commented out tester
   {"cards" : [0,1,7,5,4,15,11,6,17], "opened": false},
   {"cards" : [3,10,13,9,12,14,16,18,20], "opened": false},
   {"cards" : [21,24,31,33,38,41,26,42,22], "opened": false},
@@ -76,7 +80,7 @@ const packs =
   {"cards" : [8,39,40,43,19,36,44,28,32], "opened": false}
 ]
 var pack_count = 0;
-const PACK_COUNT_MAX = 6;
+const PACK_COUNT_MAX = packs.length;
 
 var cur_card = 0;
 var selected_pack;
@@ -91,9 +95,17 @@ var pile_pos = 0;
 //For Randomizer
 var randomize = false;
 
+//For table 
+let cardBinder = "";
+let cellCounter = 0;
+let cardFinder = 0;
+var cardsLength = cards.length;
+
+cardBinder = "<tr> <th></th> <th>Your Collection!</th> <th></th></tr> <tr>"
+
 function RandPack()
 {
-  if(pack_count != PACK_COUNT_MAX)
+  if(pack_count < PACK_COUNT_MAX)	  
   {
     do
     {
@@ -105,9 +117,18 @@ function RandPack()
   }
   else
   {
-  //temporarily turned this off for testing purposes lol
-	//window.location.replace("tmp.html");
+	pack.style.display = "none";
+	packImg.style.display = "none";	
+	container.style.display = "none";
+	complete_Button.style.display = "flex";
+	
+	//changed the switch to site credits into a button	
   }
+}
+
+function SiteCredits()
+{
+	window.location.replace("siteCredits.html");
 }
 
 function RandCard()
@@ -124,6 +145,7 @@ function NextCard()
     var card_index = selected_pack.cards[cur_card];
     selected_card = "media/cards/" + cards[card_index].file + ".jpg";
     cards[card_index].pulled = true;
+	cardFinder = card_index;
   }
   else
   {
@@ -200,6 +222,25 @@ function FlipCard()
   NextCard();
   display_card.src = selected_card;
   moving_img.src = selected_card;
+  
+  // add card to table
+  cardBinder += "<td><img src= \"";
+  cardBinder += selected_card;
+  cardBinder += "\" alt= \"";
+  cardBinder += cards[cardFinder].name;
+  cardBinder += "\" class = \"binderImage\"><br>";
+  cardBinder += cards[cardFinder].name;
+  cardBinder += "<br>By: ";
+  cardBinder += cards[cardFinder].by;
+  cardBinder += "</td>";
+
+  cellCounter++;
+  
+  if (cellCounter == 3)
+  {
+	  cardBinder += "</tr>"
+	  cellCounter = 0;
+  }
 }
 
 function MoveCard()
@@ -272,8 +313,8 @@ function openBinder()
 {
 	//initiates transition
 		binder.style.width = "1300px";
-		
-		binder.addEventListener("transitionend", viewBinder); 
+		binder.addEventListener("transitionend", viewBinder);
+		tableOpen();
 }
 
 function viewBinder () 
@@ -295,4 +336,10 @@ function closeBinder()
 function Cheater()
 {
   randomize = true;
+}
+
+function tableOpen()
+{	
+	document.getElementById("table").innerHTML = cardBinder;
+	
 }
