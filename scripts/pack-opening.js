@@ -224,7 +224,6 @@ function FlipCard()
   display_card.src = selected_card;
   moving_img.src = selected_card;
   
-  
   // add card to table
   cardBinder += "<td><img src= \"";
   cardBinder += selected_card;
